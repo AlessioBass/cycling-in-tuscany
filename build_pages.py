@@ -157,24 +157,8 @@ def build_territory(t):
     parts=[head(f'{t["name"]} — Cycling in Tuscany',1), nav(1)]
     img=TER_IMG.get(t["slug"],"")
     hero_style=f' style="background-image:linear-gradient(rgba(20,10,15,.45),rgba(20,10,15,.72)),url(../{img});background-size:cover;background-position:center"' if img else ""
-    hero_stats=""
-    if t.get("ride_pack"):
-        rp=t["ride_pack"]
-        def _pkm(s):return float(str(s).replace(",","."))
-        def _pelev(s):return int(s.replace("m","").replace(".","").replace("\xa0","").strip())
-        def _fkm(v):return str(round(v))
-        def _fd(v):return f"{v//1000}.{v%1000:03d}" if v>=1000 else str(v)
-        tot_km=sum(_pkm(r["km"]) for r in rp)
-        tot_d=sum(_pelev(r["dislivello"]) for r in rp)
-        types=" & ".join(dict.fromkeys(r["type"] for r in rp))
-        hero_stats=f"""<div class="her-stats">
-<div class="her-stat"><span class="her-stat-num">{len(rp)}</span><span class="her-stat-lbl">Routes</span></div>
-<div class="her-stat"><span class="her-stat-num">{_fkm(tot_km)} km</span><span class="her-stat-lbl">Total distance</span></div>
-<div class="her-stat"><span class="her-stat-num">{_fd(tot_d)} m</span><span class="her-stat-lbl">Elevation gain</span></div>
-<div class="her-stat"><span class="her-stat-num">{types}</span><span class="her-stat-lbl">Route types</span></div>
-</div>"""
     parts.append(f"""<div class="{hero_cls}"{hero_style}><div class="wrap">{ribbon}
-<div class="kick">Territory · {t['area']}</div><h1>{t['name']}</h1><p class="lead">{t['intro']}</p>{hero_stats}</div></div>""")
+<div class="kick">Territory · {t['area']}</div><h1>{t['name']}</h1><p class="lead">{t['intro']}</p></div></div>""")
     parts.append(f"""<section><div class="wrap"><h2 class="sec">What to see</h2><p class="sub">{t['itinerari_txt']}</p><div class="grid g3">{cosa}</div></div></section>""")
     if t.get("ride_pack"):
         loops="".join(loop_card(l) for l in t["ride_pack"])
