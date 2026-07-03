@@ -348,7 +348,7 @@ home.append(f"""<section id="map" style="padding:80px 0 0;background:var(--cream
 <div class="wrap" style="position:relative;z-index:10">
 {sec_box("Explore the destination","The destination map","Official territories and stays, all in one place. Click a pin for routes, details and booking.",mb="40px")}
 </div>
-<div id="map-el" style="position:relative;z-index:1"></div>
+<div id="map-el"></div>
 </section>""")
 # SOCIAL PROOF
 # TERRITORIES
