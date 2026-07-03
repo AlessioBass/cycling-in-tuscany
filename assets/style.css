@@ -202,7 +202,7 @@ h2.sec{font-size:1.9rem;margin:0 0 8px}
 /* route cards */
 .rcard{background:var(--surface);border:1px solid var(--border);border-radius:16px;overflow:hidden;box-shadow:var(--shadow-md);transition:transform .3s cubic-bezier(.25,1,.5,1),box-shadow .3s ease;padding:10px 10px 0}
 .rcard:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg)}
-.rcard-preview{position:relative;height:280px;overflow:hidden;border-radius:10px}
+.rcard-preview{position:relative;border-radius:10px;overflow:hidden;background:#f5f3ef}
 .rp-gravel{background:linear-gradient(135deg,#c9960e 0%,#7a5010 100%)}
 .rp-road{background:linear-gradient(135deg,#2d4a3e 0%,#182d25 100%)}
 .rcard-badge{position:absolute;top:10px;left:10px;font-size:.6rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 10px;border-radius:999px;font-family:var(--font-body)}

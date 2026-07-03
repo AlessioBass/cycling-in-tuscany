@@ -100,7 +100,7 @@ def loop_card(l):
     img_url="https://ridewithgps.com/routes/"+route_id+"/full.png"
     if privacy_code: img_url+="?privacy_code="+privacy_code
     return f"""<div class="rcard">
-<div class="rcard-preview" style="background:#eef0eb"><img src="{img_url}" alt="{l['name']}" loading="lazy" style="width:100%;height:100%;object-fit:contain;display:block">
+<div class="rcard-preview"><img src="{img_url}" alt="{l['name']}" loading="lazy" style="width:100%;height:auto;display:block">
 <span class="rcard-badge {badge}">{l['type']}</span></div>
 <div class="rcard-body">
 <h4>{l['name']}</h4>
