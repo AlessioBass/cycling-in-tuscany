@@ -325,14 +325,6 @@ home.append(f"""<section id="stays" style="background:var(--cream)"><div class="
 {dcard('villaggio-orizzonte')}
 {dcard('villa-toscana')}
 </div></div></section>""")
-# STATS STRIP
-total_routes=sum(len(s.get("ride_pack") or []) for s in STR)+sum(len(t.get("ride_pack") or []) for t in TER)
-home.append(f"""<div class="stat-band"><div class="wrap"><div class="stat-band-grid">
-<div><div class="stat-num">2</div><div class="stat-lbl">Official Territories</div></div>
-<div><div class="stat-num">3</div><div class="stat-lbl">Verified Stays</div></div>
-<div><div class="stat-num">{total_routes}</div><div class="stat-lbl">Routes to Download</div></div>
-<div><div class="stat-num">1</div><div class="stat-lbl">Iconic Gravel Trail</div></div>
-</div></div></div>""")
 # MAP
 home.append(f"""<section id="map" style="padding:80px 0 0;background:var(--cream)">
 <div class="wrap" style="position:relative;z-index:10">
@@ -458,14 +450,14 @@ home.append(f"""<section id="magazine"><div class="wrap">
 home.append("""<section id="faq" style="background:#fff"><div class="wrap" style="max-width:780px">
 """ + sec_box("Plan your trip","Frequently asked questions","Quick answers before you go.") + """
 <div style="margin-top:8px">
-<details class="acc"><summary>What is Cycling in Tuscany?</summary><div class="ab">The year-round destination guide from the Tuscany Trail team — where to ride and where to sleep on the Etruscan Coast and the Metalliferous Hills.</div></details>
-<details class="acc"><summary>When is the best time to come?</summary><div class="ab">Year-round. Spring and autumn are ideal. The coast rides well in winter; the hills stay cooler in summer.</div></details>
-<details class="acc"><summary>Are routes suitable for beginners or e-bikes?</summary><div class="ab">Yes. Every pack has routes at different levels. Difficulty and surface are shown for each. Gravel routes in the hills are generally e-bike friendly.</div></details>
-<details class="acc"><summary>Do I need a guide?</summary><div class="ab">No. All routes have a GPS track on Ride with GPS — download and ride independently at your own pace.</div></details>
-<details class="acc"><summary>What's in a route pack?</summary><div class="ab">GPS track, distance, elevation, surface breakdown and difficulty. Some include a downloadable PDF guide with local tips.</div></details>
-<details class="acc"><summary>How do I book a stay?</summary><div class="ab">Each stay has a direct booking link — no commission. Use the Stay22 button for more options in the same area.</div></details>
-<details class="acc"><summary>What is the Tuscany Trail?</summary><div class="ab">A 360 km self-supported bikepacking race from Campiglia Marittima, held once a year in spring. Cycling in Tuscany is the year-round companion.</div></details>
-<details class="acc"><summary>What's the difference between a territory and a stay?</summary><div class="ab">Territories are areas with route packs and local content. Stays are verified cyclist-friendly accommodations. Both earn their place on this site.</div></details>
+<details class="acc"><summary>What is Cycling in Tuscany?</summary></details>
+<details class="acc"><summary>When is the best time to come?</summary></details>
+<details class="acc"><summary>Are routes suitable for beginners or e-bikes?</summary></details>
+<details class="acc"><summary>Do I need a guide?</summary></details>
+<details class="acc"><summary>What's in a route pack?</summary></details>
+<details class="acc"><summary>How do I book a stay?</summary></details>
+<details class="acc"><summary>What is the Tuscany Trail?</summary></details>
+<details class="acc"><summary>What's the difference between a territory and a stay?</summary></details>
 </div>
 </div></section>""")
 # maplibre
