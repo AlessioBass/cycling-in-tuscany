@@ -271,7 +271,7 @@ def tcard(t,img,cap,tag,town):
 <div class="photo" style="background-image:url('{img}'), {GRAD_DARK}"><span class="cap">📷 {cap}</span></div>
 <div class="tbody"><div class="tag">{tag}</div><h3>{t['name']}</h3><p class="town">{town}</p><span class="go">Discover →</span></div></a>"""
 
-soon='<div class="tsoon"><div><span>Coming soon</span>New territory joining the map</div></div>'
+_ter_arrow='<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>'
 
 # markers — premium LAST so it renders on top in the DOM
 markers=[]
@@ -351,14 +351,90 @@ home.append(f"""<section id="map" style="padding:80px 0 0;background:var(--cream
 <div id="map-el"></div>
 </section>""")
 # SOCIAL PROOF
-# TERRITORIES
-home.append(f"""<section id="territories" style="background:var(--cream)"><div class="wrap">
-{sec_box("Official Territories","Territories to explore","The many souls of this corner of Tuscany, one ride at a time.<br>Campiglia leads on top — more territories are joining the map.")}
-<div class="grid g3">
-{tcard(mont,'images/monterotondo.jpg','Monterotondo — Le Biancane geothermal white hills','Official territory','Metalliferous Hills, geothermal heart')}
-{soon}
-{soon}
-</div></div></section>""")
+# TERRITORIES — horizontal carousel
+_ter_mont_slide=f"""<a class="ter-slide" href="territori/{mont['slug']}.html">
+<div class="ter-slide-inner">
+<div class="ter-slide-img" style="background-image:url('images/monterotondo.jpg')"></div>
+<div class="ter-slide-grad"></div>
+<div class="ter-slide-body">
+<span class="ter-slide-tag">Official Territory</span>
+<div class="ter-slide-title">{mont['name']}</div>
+<div class="ter-slide-desc">Metalliferous Hills — geothermal landscape, white hills, routes that breathe.</div>
+<div class="ter-slide-cta">Discover {_ter_arrow}</div>
+</div></div></a>"""
+_ter_soon1="""<div class="ter-slide ter-slide-soon">
+<div class="ter-slide-inner">
+<div class="ter-soon-glow"></div>
+<div class="ter-soon-lines"></div>
+<div class="ter-slide-body">
+<span class="soon-badge"><span class="soon-badge-dot"></span>Coming 2026</span>
+<div class="ter-slide-title">New Territory</div>
+<div class="ter-slide-desc">A new corner of Tuscany is joining the map — routes, stays and stories, curated as always.</div>
+</div></div></div>"""
+_ter_soon2="""<div class="ter-slide ter-slide-soon">
+<div class="ter-slide-inner">
+<div class="ter-soon-glow"></div>
+<div class="ter-soon-lines"></div>
+<div class="ter-slide-body">
+<span class="soon-badge"><span class="soon-badge-dot"></span>More to come</span>
+<div class="ter-slide-title">Keep riding</div>
+<div class="ter-slide-desc">Cycling in Tuscany keeps growing. More territories, more routes, more reasons to come back.</div>
+</div></div></div>"""
+home.append(f"""<section id="territories" style="background:var(--cream);padding:80px 0">
+<div class="wrap">
+  <div class="ter-carousel-hd">
+    <div>
+      <div style="display:inline-flex;align-items:center;gap:13px;margin-bottom:14px">
+        <div style="height:1px;width:38px;background:#f5a623"></div>
+        <span style="font-size:.65rem;font-weight:700;letter-spacing:.17em;text-transform:uppercase;color:#f5a623;font-family:var(--font-body)">Official Territories</span>
+        <div style="height:1px;width:38px;background:#f5a623"></div>
+      </div>
+      <h2 style="font-size:2.8rem;margin:0 0 10px;color:var(--fg);font-family:var(--font-display);line-height:1.05">Territories to explore</h2>
+      <p style="color:var(--muted);max-width:500px;font-size:.98rem;margin:0;line-height:1.55">The many souls of this corner of Tuscany, one ride at a time.<br>Campiglia leads — more territories are joining the map.</p>
+    </div>
+    <div class="ter-nav-btns">
+      <button class="ter-nav-btn" id="ter-prev" aria-label="Previous"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg></button>
+      <button class="ter-nav-btn" id="ter-next" aria-label="Next"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></button>
+    </div>
+  </div>
+</div>
+<div class="ter-carousel-scroll" id="ter-carousel-scroll">
+{_ter_mont_slide}
+{_ter_soon1}
+{_ter_soon2}
+</div>
+<div class="ter-dots">
+<button class="ter-dot active" aria-label="Slide 1"></button>
+<button class="ter-dot" aria-label="Slide 2"></button>
+<button class="ter-dot" aria-label="Slide 3"></button>
+</div>
+<script>
+(function(){{
+  var sc=document.getElementById('ter-carousel-scroll');
+  var slides=sc.querySelectorAll('.ter-slide');
+  var dots=document.querySelectorAll('.ter-dot');
+  var prev=document.getElementById('ter-prev');
+  var next=document.getElementById('ter-next');
+  function active(){{
+    var best=0,bestD=Infinity,cr=sc.getBoundingClientRect();
+    slides.forEach(function(s,i){{var d=Math.abs(s.getBoundingClientRect().left-cr.left);if(d<bestD){{bestD=d;best=i;}}}});
+    return best;
+  }}
+  function upd(){{
+    var a=active();
+    dots.forEach(function(d,i){{d.classList.toggle('active',i===a);}});
+    prev.disabled=(sc.scrollLeft<=2);
+    next.disabled=(sc.scrollLeft>=sc.scrollWidth-sc.clientWidth-2);
+  }}
+  function goTo(i){{sc.scrollBy({{left:slides[i].getBoundingClientRect().left-sc.getBoundingClientRect().left,behavior:'smooth'}});}}
+  prev.addEventListener('click',function(){{goTo(Math.max(0,active()-1));}});
+  next.addEventListener('click',function(){{goTo(Math.min(slides.length-1,active()+1));}});
+  dots.forEach(function(d,i){{d.addEventListener('click',function(){{goTo(i);}});}});
+  sc.addEventListener('scroll',upd,{{passive:true}});
+  upd();
+}})();
+</script>
+</section>""")
 # MAGAZINE
 home.append(f"""<section id="magazine"><div class="wrap">
 {sec_box("From the field","Cycling in Tuscany Magazine","Real stories from each territory — routes, places, people. Read here, no PDF.")}
