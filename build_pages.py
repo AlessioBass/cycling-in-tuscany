@@ -27,9 +27,9 @@ def nav(depth=0):
 <a class="brand" href="{up}index.html"><img src="{up}assets/logo.png" alt="Cycling in Tuscany"></a>
 <nav class="nav-pill"><ul>
 <li><a href="{up}index.html">Home</a></li>
-<li><a href="{up}index.html#territories">Territories</a></li>
 <li><a href="{up}index.html#stays">Stays</a></li>
 <li><a href="{up}index.html#map">Map</a></li>
+<li><a href="{up}index.html#territories">Territories</a></li>
 <li><a href="{up}index.html#magazine">Magazine</a></li>
 </ul></nav>
 <div class="nav-right">
@@ -42,9 +42,9 @@ def nav(depth=0):
 <div class="nav-mobile-panel" id="nav-mobile-panel">
 <ul>
 <li><a href="{up}index.html">Home</a></li>
-<li><a href="{up}index.html#territories">Territories</a></li>
 <li><a href="{up}index.html#stays">Stays</a></li>
 <li><a href="{up}index.html#map">Map</a></li>
+<li><a href="{up}index.html#territories">Territories</a></li>
 <li><a href="{up}index.html#magazine">Magazine</a></li>
 </ul>
 <a class="btn-pill-cta" href="{up}index.html#map" style="margin-top:8px;display:inline-block">Explore the map →</a>
