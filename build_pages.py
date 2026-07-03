@@ -11,13 +11,17 @@ STR_IMG={"punta-ala":"images/punta-ala.jpg","villaggio-orizzonte":"images/villag
 # ---------------- CSS ----------------
 CSS = open(os.path.join(ROOT,"assets","style.css"),encoding="utf-8").read()
 
-def head(title,depth=0):
+def head(title,depth=0,maplibre=False):
     up="../"*depth
+    ml_css=f'<link rel="preconnect" href="https://unpkg.com"><link rel="preconnect" href="https://basemaps.cartocdn.com"><link rel="preconnect" href="https://ridewithgps.com"><link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css"/>' if maplibre else '<link rel="preconnect" href="https://ridewithgps.com">'
     return f"""<!doctype html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{title}</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&family=Caveat:wght@500&family=DM+Sans:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap">
+{ml_css}
 <link rel="stylesheet" href="{up}assets/style.css">
-<link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css"/>
 </head><body>"""
 
 def nav(depth=0):
@@ -288,7 +292,7 @@ for t in TER:
         markers.append({"name":t["name"],"kind":"premium","lat":t["lat"],"lng":t["lng"],"page":"territori/"+t["slug"]+".html","book":stay22(t["lat"],t["lng"]),"sub":t["area"],"img":TER_IMG.get(t["slug"],""),"rp":rp})
 mjson=json.dumps(markers,ensure_ascii=False)
 
-home=[head("Cycling in Tuscany — plan your Tuscany cycling holiday",0), nav(0)]
+home=[head("Cycling in Tuscany — plan your Tuscany cycling holiday",0,maplibre=True), nav(0)]
 # HERO glass
 home.append(f"""<section class="hero-glass">
 <div class="hero-bg" style="background-image:url('images/hero.jpg')"></div>
