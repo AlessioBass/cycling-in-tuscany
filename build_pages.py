@@ -366,6 +366,19 @@ _ter_soon1="""<div class="ter-slide ter-slide-soon">
 <div class="ter-slide-inner">
 <div class="ter-soon-glow"></div>
 <div class="ter-soon-lines"></div>
+<div class="ter-soon-icon">
+<svg width="96" height="96" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="48" cy="48" r="44" stroke="rgba(245,166,35,.22)" stroke-width="1.5" stroke-dasharray="3 7"/>
+  <circle cx="48" cy="48" r="30" stroke="rgba(255,255,255,.07)" stroke-width="1"/>
+  <path d="M48 6 L53 43 L48 39 L43 43 Z" fill="#f5a623"/>
+  <path d="M48 90 L43 53 L48 57 L53 53 Z" fill="rgba(255,255,255,.22)"/>
+  <path d="M90 48 L53 43 L57 48 L53 53 Z" fill="rgba(255,255,255,.18)"/>
+  <path d="M6 48 L43 53 L39 48 L43 43 Z" fill="rgba(255,255,255,.18)"/>
+  <circle cx="48" cy="48" r="6" fill="#f5a623" opacity=".9"/>
+  <circle cx="48" cy="48" r="2.5" fill="#0e1a12"/>
+  <text x="48" y="24" text-anchor="middle" dominant-baseline="middle" fill="rgba(245,166,35,.55)" font-size="8" font-family="monospace" font-weight="700" letter-spacing="2">N</text>
+</svg>
+</div>
 <div class="ter-slide-body">
 <span class="soon-badge"><span class="soon-badge-dot"></span>Coming 2026</span>
 <div class="ter-slide-title">New Territory</div>
@@ -375,6 +388,17 @@ _ter_soon2="""<div class="ter-slide ter-slide-soon">
 <div class="ter-slide-inner">
 <div class="ter-soon-glow"></div>
 <div class="ter-soon-lines"></div>
+<div class="ter-soon-icon">
+<svg width="96" height="96" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="48" cy="48" r="44" stroke="rgba(245,166,35,.22)" stroke-width="1.5" stroke-dasharray="3 7"/>
+  <path d="M16 72 Q22 54 38 48 Q54 42 62 30 Q68 18 80 14" stroke="rgba(255,255,255,.38)" stroke-width="2" fill="none" stroke-linecap="round" stroke-dasharray="5 5"/>
+  <circle cx="16" cy="72" r="5" fill="none" stroke="rgba(255,255,255,.45)" stroke-width="2"/>
+  <circle cx="48" cy="39" r="4.5" fill="#f5a623" opacity=".85"/>
+  <circle cx="80" cy="14" r="10" fill="rgba(245,166,35,.18)" stroke="rgba(245,166,35,.4)" stroke-width="1.5"/>
+  <circle cx="80" cy="14" r="4" fill="#f5a623" opacity=".9"/>
+  <path d="M76 14 L80 10 L84 14" stroke="#f5a623" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity=".7"/>
+</svg>
+</div>
 <div class="ter-slide-body">
 <span class="soon-badge"><span class="soon-badge-dot"></span>More to come</span>
 <div class="ter-slide-title">Keep riding</div>
