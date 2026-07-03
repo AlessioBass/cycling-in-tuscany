@@ -304,20 +304,6 @@ home.append(f"""<section class="hero-glass">
       <a class="btn ghost-white" href="#stays">See verified stays</a>
     </div>
   </div>
-  <div class="hero-right">
-    <div class="glass-hero-card">
-      <div class="glass-card-img" style="background-image:url('images/campiglia.jpg')">
-        <div class="glass-card-badge">★ Premium Territory</div>
-      </div>
-      <div class="glass-card-body">
-        <div class="glass-card-label">Home of the Tuscany Trail</div>
-        <h3>Campiglia Marittima</h3>
-        <div class="glass-card-meta">Costa degli Etruschi · 6 highlights · Bike Area</div>
-        <a class="glass-card-link" href="territori/{camp['slug']}.html">Discover →</a>
-      </div>
-    </div>
-    <div class="float-badge"><span class="sys-dot"></span>16 routes ready to download</div>
-  </div>
 </div>
 </section>""")
 # CAMPIGLIA feature — rounded top slides over the hero
